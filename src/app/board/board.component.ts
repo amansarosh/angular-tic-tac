@@ -7,32 +7,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoardComponent implements OnInit {
   squares: string[];
-  xIsNext: boolean;
-  winner: string;
+  xIsNext: boolean; //Help Determine Current Player
+  winner: string; //X, or O
 
-  constructor() { }
+  constructor() { } //Used to inject dependancies
 
-  ngOnInit() {
-    this.newGame();
+  ngOnInit() { //Used for inital setup work
+    this.newGame(); //Method to setup inital values for a new game
   }
 
-  newGame() {
-    this.squares = Array(9).fill(null);
-    this.winner = null;
-    this.xIsNext = true;
+  newGame() { //Function for starting new game
+    this.squares = Array(9).fill(null); //An array of 9 squares
+    this.winner = null; //No winner at start
+    this.xIsNext = true; //X always starts first
   }
 
   get player() {
-    return this.xIsNext ? 'X' : 'O';
+    return this.xIsNext ? 'X' : 'O'; //Determines which player will be using the game board
   }
 
-  makeMove(idx: number) {
-    if (!this.squares[idx]) {
-      this.squares.splice(idx, 1, this.player);
-      this.xIsNext = !this.xIsNext;
+  makeMove(idx: number) { //Serves as even handeler. 
+    if (!this.squares[idx]) { //We will check the index in the array they clicked on; if blank then nothing
+      this.squares.splice(idx, 1, this.player);  //If empty or null, we'll splice int he index of the square with the current player
+      this.xIsNext = !this.xIsNext; //Toggle XIsNext to its opposite value by using "!"
     }
 
-    this.winner = this.calculateWinner();
+    this.winner = this.calculateWinner(); //Algorithem to determine what user has won the game
   }
 
   calculateWinner() {
