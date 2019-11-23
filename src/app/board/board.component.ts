@@ -32,7 +32,7 @@ export class BoardComponent implements OnInit {
       this.xIsNext = !this.xIsNext; //Toggle XIsNext to its opposite value by using "!"
     }
 
-    this.winner = this.calculateWinner(); //Algorithem to determine what user has won the game
+    this.winner = this.calculateWinner(); //Algorithm to determine what user has won the game
   }
 
   calculateWinner() {
