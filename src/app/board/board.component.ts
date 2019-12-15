@@ -23,12 +23,12 @@ export class BoardComponent implements OnInit {
   }
 
   get player() {
-    return this.xIsNext ? 'X' : 'O'; //Determines which player will be using the game board
+    return this.xIsNext ? 'X' : 'O'; //Determines which player will be using the game board | If, then else
   }
 
   makeMove(idx: number) { //Serves as even handeler. 
     if (!this.squares[idx]) { //We will check the index in the array they clicked on; if blank then nothing
-      this.squares.splice(idx, 1, this.player);  //If empty or null, we'll splice int he index of the square with the current player
+      this.squares.splice(idx, 1, this.player);  //If empty or null, we'll splice int the index of the square with the current player
       this.xIsNext = !this.xIsNext; //Toggle XIsNext to its opposite value by using "!"
     }
 
